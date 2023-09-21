@@ -2,7 +2,6 @@ import { Fragment, useEffect } from 'react';
 import { Post } from '../components/post';
 import { usePosts } from '../hooks/post/use-posts';
 import { useInView } from 'react-intersection-observer';
-
 export function Home() {
 	const { data, fetchNextPage } = usePosts();
 	const { inView, ref } = useInView();

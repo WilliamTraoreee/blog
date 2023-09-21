@@ -11,7 +11,7 @@ export const usePosts = () => {
 				.get(
 					`${
 						import.meta.env.VITE_API_URL
-					}/collections/posts/records?sort=-created&page=${pageParam}&perPage=1`
+					}/collections/posts/records?sort=-created&page=${pageParam}&perPage=30`
 				)
 				.json();
 
