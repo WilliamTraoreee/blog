@@ -2,6 +2,7 @@ import { Fragment, useEffect } from 'react';
 import { Post } from '../components/post';
 import { usePosts } from '../hooks/post/use-posts';
 import { useInView } from 'react-intersection-observer';
+import { New } from '../components/new';
 export function Home() {
 	const { data, fetchNextPage } = usePosts();
 	const { inView, ref } = useInView();
@@ -42,6 +43,7 @@ export function Home() {
 						</button>
 					</div>
 				)}
+			<New />
 		</>
 	);
 }
