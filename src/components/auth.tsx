@@ -14,10 +14,17 @@ export function Auth() {
 	const { handleSubmit, register } = useForm<UserInput>();
 
 	const onSubmit: SubmitHandler<UserInput> = async (user) => {
-		const authData = await pb.admins.authWithPassword(user.mail, user.password);
-		if (authData) {
-			setOpen(false);
-			window.location.reload();
+		try {
+			const authData = await pb.admins.authWithPassword(
+				user.mail,
+				user.password
+			);
+			if (authData) {
+				setOpen(false);
+				window.location.reload();
+			}
+		} catch (error) {
+			console.log(error);
 		}
 	};
 
