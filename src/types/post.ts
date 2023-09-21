@@ -25,6 +25,19 @@ export const PostCollectionSchema = z.object({
 	items: z.array(PostSchema),
 });
 
+export const PostPaginatedCollectionSchema = z.object({
+	pageParams: z.unknown(),
+	pages: z.array(
+		z.object({
+			page: z.number(),
+			perPage: z.number(),
+			totalItems: z.number(),
+			totalPages: z.number(),
+			items: z.array(PostSchema),
+		})
+	),
+});
+
 export type Post = z.infer<typeof PostSchema>;
 export type PostContent = z.infer<typeof PostContentSchema>;
 export type PostCollection = z.infer<typeof PostCollectionSchema>;
@@ -36,3 +49,6 @@ export type EditPost = Omit<
 	Post,
 	'created' | 'updated' | 'collectionId' | 'collectionName | image'
 > & { imageFile: File | null | undefined };
+export type PostPaginatedCollection = z.infer<
+	typeof PostPaginatedCollectionSchema
+>;

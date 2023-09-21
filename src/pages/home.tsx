@@ -1,43 +1,48 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Post } from '../components/post';
 import { usePosts } from '../hooks/post/use-posts';
-import { Post as PostType } from '../types/post';
+import { useInView } from 'react-intersection-observer';
 
 export function Home() {
-	const [currentPage, setCurrentPage] = useState(1);
-	const [posts, setPosts] = useState<PostType[]>([]);
-	const { data, isSuccess } = usePosts(1, currentPage);
+	const { data, fetchNextPage } = usePosts();
+	const { inView, ref } = useInView();
 
 	useEffect(() => {
-		if (isSuccess) {
-			const newPosts = [...posts, ...data.items] as PostType[];
-			setPosts(newPosts);
+		if (inView) {
+			fetchNextPage();
 		}
-	}, [isSuccess]);
-
-	useEffect(() => {
-		window.onscroll = function () {
-			if (
-				window.innerHeight + window.pageYOffset >=
-				document.body.offsetHeight
-			) {
-				if (!data) return;
-				if (currentPage >= data?.totalPages) return;
-				setCurrentPage((current) => current + 1);
-			}
-		};
-	}, [currentPage, data]);
+	}, [inView]);
 
 	return (
 		<>
 			<main className='md:w-[640px] w-full px-6 mx-auto py-20'>
-				{posts?.length === 0 && (
-					<span className='text-center block w-full text-4xl'>🧑‍💻</span>
-				)}
-				{posts.length !== 0 &&
-					posts.map((post) => <Post post={post} key={post.id} />)}
+				{!data ||
+					(data?.pages[0].totalItems === 0 && (
+						<span className='text-center block w-full text-4xl'>🧑‍💻</span>
+					))}
+				{data &&
+					data.pages.map((page) => (
+						<Fragment key={Math.random()}>
+							{page.items.map((post) => (
+								<Post post={post} key={post.id} />
+							))}
+						</Fragment>
+					))}
 			</main>
-			<div className='h-[3000px] w-full bg-red-500'></div>
+			{data &&
+				data.pages[data?.pages.length - 1].page !==
+					data.pages[data?.pages.length - 1].totalPages &&
+				data?.pages[0].totalItems !== 0 && (
+					<div className='w-full flex justify-center'>
+						<button
+							ref={ref}
+							onClick={() => fetchNextPage()}
+							className='bg-white text-black h-10 rounded px-2.5 text-sm inline-flex items-center'
+						>
+							Plus de post
+						</button>
+					</div>
+				)}
 		</>
 	);
 }

@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { CreatePost, PostSchema } from '../../types/post';
-import { postKeys } from '../query-keys';
 import { pb } from '../../main';
+import { postKeys } from '../query-keys';
 
 export function useCreatePost() {
 	const queryClient = useQueryClient();
@@ -14,8 +14,6 @@ export function useCreatePost() {
 			if (post.imageFile) {
 				formData.append('image', post.imageFile as File);
 			}
-
-			console.log(post.imageFile);
 
 			const data = await pb.collection('posts').create(formData);
 

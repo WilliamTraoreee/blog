@@ -1,21 +1,31 @@
-import { useQuery } from '@tanstack/react-query';
+import { PostCollection } from './../../types/post';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import ky from 'ky';
-import { PostCollectionSchema } from '../../types/post';
+import { postKeys } from '../query-keys';
 
-export const usePosts = (perPage: number, page: number) => {
-	return useQuery({
-		queryKey: ['posts', page],
-		queryFn: async () => {
+export const usePosts = () => {
+	return useInfiniteQuery({
+		queryKey: postKeys.lists(),
+		queryFn: async ({ pageParam = 1 }) => {
 			const data = await ky
 				.get(
 					`${
 						import.meta.env.VITE_API_URL
-					}/collections/posts/records?sort=-created&page=${page}&perPage=${perPage}`
+					}/collections/posts/records?sort=-created&page=${pageParam}&perPage=1`
 				)
 				.json();
 
-			return PostCollectionSchema.parse(data);
+			return data as PostCollection;
 		},
-		staleTime: Infinity,
+		getNextPageParam: (lastPage) => {
+			if (lastPage.page < lastPage.totalPages) {
+				return lastPage.page + 1;
+			}
+		},
+		getPreviousPageParam: (firstPage) => {
+			if (firstPage.page > 1) {
+				return firstPage.page - 1;
+			}
+		},
 	});
 };

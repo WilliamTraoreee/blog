@@ -3,4 +3,5 @@ export const postKeys = {
 	lists: () => [...postKeys.root, 'lists'] as const,
 	details: () => [...postKeys.root, 'details'] as const,
 	detail: (id: string) => [...postKeys.details(), id] as const,
+	page: (page: number) => [...postKeys.lists(), page] as const,
 };
