@@ -15,6 +15,13 @@ export function Home() {
 
 	return (
 		<>
+			<a
+				href='https://github.com/WilliamTraoreee/blog'
+				target='_blank'
+				className='absolute top-2 left-2 text-xl'
+			>
+				<i className='ri-github-fill'></i>
+			</a>
 			<main className='md:w-[640px] w-full px-6 mx-auto py-20'>
 				{!data ||
 					(data?.pages[0].totalItems === 0 && (
