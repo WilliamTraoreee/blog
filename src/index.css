@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background: theme('colors.black');
+	color: theme('colors.white');
+}
+
+/* POST */
+
+.post a {
+	text-decoration: underline;
+}
