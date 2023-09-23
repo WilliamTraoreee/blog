@@ -7,10 +7,12 @@ import 'remixicon/fonts/remixicon.css';
 import PocketBase from 'pocketbase';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Auth } from './components/auth';
+import { SearchPage } from './pages/search';
 
 const router = createBrowserRouter([
 	{ path: '/', element: <Home /> },
 	{ path: '/login', element: <Auth /> },
+	{ path: '/search', element: <SearchPage /> },
 ]);
 
 const queryClient = new QueryClient();
