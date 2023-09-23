@@ -4,6 +4,7 @@ import { usePosts } from '../hooks/post/use-posts';
 import { useInView } from 'react-intersection-observer';
 import { New } from '../components/new';
 import { Search } from '../components/search';
+import { BackToTop } from '../components/back-to-top';
 export function Home() {
 	const { data, fetchNextPage } = usePosts();
 	const { inView, ref } = useInView();
@@ -55,6 +56,7 @@ export function Home() {
 					</div>
 				)}
 			<New />
+			<BackToTop />
 		</>
 	);
 }

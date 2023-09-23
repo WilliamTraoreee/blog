@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { Search } from '../components/search';
 import { New } from '../components/new';
 import { Post } from '../components/post';
+import { BackToTop } from '../components/back-to-top';
 
 export function SearchPage() {
 	const [searchParams] = useSearchParams();
@@ -68,6 +69,7 @@ export function SearchPage() {
 					</div>
 				)}
 			<New />
+			<BackToTop />
 		</>
 	);
 }
