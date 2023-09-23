@@ -28,7 +28,6 @@ export function SearchDate() {
 				onChange={handleChange}
 				value={value}
 				maxDate={new Date()}
-				isOpen
 			/>
 		</div>
 	);
