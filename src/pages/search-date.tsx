@@ -1,20 +1,28 @@
 import { Fragment, useEffect } from 'react';
-import { Post } from '../components/post';
-import { usePosts } from '../hooks/post/use-posts';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import { New } from '../components/new';
 import { Search } from '../components/search';
+import { New } from '../components/new';
+import { Post } from '../components/post';
 import { BackToTop } from '../components/back-to-top';
+import { useSearchDatePosts } from '../hooks/post/use-search-date-posts';
 import { SearchDate } from '../components/search-date';
-export function Home() {
-	const { data, fetchNextPage } = usePosts();
+
+export function SearchDatePage() {
+	const [searchParams] = useSearchParams();
 	const { inView, ref } = useInView();
+
+	const from = searchParams.get('from');
+	const to = searchParams.get('to');
+	const { data, fetchNextPage } = useSearchDatePosts(from!, to!);
 
 	useEffect(() => {
 		if (inView) {
 			fetchNextPage();
 		}
 	}, [inView]);
+
+	useEffect(() => {}, []);
 
 	return (
 		<>
@@ -27,6 +35,12 @@ export function Home() {
 			</a>
 			<main className='md:w-[640px] w-full px-6 mx-auto py-20'>
 				<div className='flex justify-between gap-3 mb-5'>
+					<Link
+						to='/'
+						className='w-10 flex items-center justify-center h-10 border border-white/20 bg-white/10 rounded hover:bg-white hover:text-black transition-colors duration-150'
+					>
+						<i className='ri-arrow-left-s-line'></i>
+					</Link>
 					<Search />
 					<SearchDate />
 				</div>
