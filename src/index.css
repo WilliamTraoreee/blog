@@ -7,8 +7,116 @@ body {
 	color: theme('colors.white');
 }
 
+* {
+	box-sizing: border-box;
+}
+
 /* POST */
 
 .post a {
 	text-decoration: underline;
+}
+
+/* DATE RANGE PICKER */
+
+.react-daterange-picker {
+	width: 100%;
+}
+
+.react-daterange-picker__wrapper {
+	width: 100%;
+	height: theme('spacing.10');
+	border-radius: 0.25rem;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2) !important;
+	padding: 0 theme('spacing.2');
+}
+
+.react-daterange-picker__range-divider {
+	display: none;
+}
+
+.react-daterange-picker__inputGroup__input {
+	outline: none;
+}
+
+.react-daterange-picker button svg {
+	stroke: theme('colors.white') !important;
+}
+
+.react-daterange-picker button:hover svg {
+	stroke: theme('colors.white') !important;
+	opacity: 0.5;
+}
+
+.react-daterange-picker__inputGroup__input:invalid {
+	background: transparent !important;
+}
+
+.react-calendar {
+	background: rgba(255, 255, 255, 0.1) !important;
+	border: 1px solid rgba(255, 255, 255, 0.2) !important;
+	backdrop-filter: blur(20px);
+	margin-top: theme('spacing.2');
+	border-radius: theme('borderRadius.md');
+	padding: theme('spacing.2');
+}
+
+.react-calendar__navigation {
+	background: rgba(255, 255, 255, 0.1) !important;
+	border: 1px solid rgba(255, 255, 255, 0.2) !important;
+	border-radius: 0.25rem;
+}
+
+.react-calendar__navigation button:disabled {
+	background: transparent !important;
+	opacity: 0.2;
+}
+
+.react-calendar__month-view__days {
+	box-sizing: border-box;
+}
+
+.react-calendar__month-view__days__day--weekend {
+	color: theme('colors.white') !important;
+}
+
+.react-calendar__tile {
+	border: 1px solid transparent !important;
+}
+
+.react-calendar__tile:disabled {
+	background: transparent !important;
+	opacity: 0.15;
+}
+
+.react-calendar__tile--now {
+	background: theme('colors.white') !important;
+	color: theme('colors.black') !important;
+	border-radius: 0.25rem;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+	background: rgba(255, 255, 255, 0.2) !important;
+	border: 1px solid rgba(255, 255, 255, 0.2) !important;
+	border-radius: 0.25rem;
+}
+
+.react-calendar__tile--active {
+	background: theme('colors.white') !important;
+	color: theme('colors.black') !important;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+	background: theme('colors.white') !important;
+	color: theme('colors.black') !important;
+	border: 1px solid transparent !important;
+	border-radius: 0;
+}
+
+.react-calendar__tile--hover {
+	background: rgba(255, 255, 255, 0.2) !important;
+	color: theme('colors.white') !important;
 }

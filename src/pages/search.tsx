@@ -6,6 +6,7 @@ import { Search } from '../components/search';
 import { New } from '../components/new';
 import { Post } from '../components/post';
 import { BackToTop } from '../components/back-to-top';
+import { SearchDate } from '../components/search-date';
 
 export function SearchPage() {
 	const [searchParams] = useSearchParams();
@@ -32,7 +33,7 @@ export function SearchPage() {
 				<i className='ri-github-fill'></i>
 			</a>
 			<main className='md:w-[640px] w-full px-6 mx-auto py-20'>
-				<div className='flex justify-end mb-5'>
+				<div className='flex justify-between gap-3 mb-5'>
 					<Link
 						to='/'
 						className='w-10 flex items-center justify-center h-10 border border-white/20 bg-white/10 rounded hover:bg-white hover:text-black transition-colors duration-150'
@@ -40,6 +41,7 @@ export function SearchPage() {
 						<i className='ri-arrow-left-s-line'></i>
 					</Link>
 					<Search />
+					<SearchDate />
 				</div>
 				{!data ||
 					(data?.pages[0].totalItems === 0 && (
