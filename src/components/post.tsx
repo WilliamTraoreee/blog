@@ -32,7 +32,7 @@ export function Post(props: Props) {
 				)}
 			</div>
 			<div
-				className='mt-3 text-xl post'
+				className='mt-3 text-xl post break-words'
 				dangerouslySetInnerHTML={{
 					__html: postContent.text,
 				}}
