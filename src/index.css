@@ -143,3 +143,14 @@ body {
 	background: theme('colors.white') !important;
 	color: theme('colors.black') !important;
 }
+
+/* CODE */
+
+code {
+	font-size: theme('fontSize.xs');
+	background: rgba(255, 255, 255, 0.1);
+	display: block;
+	padding: theme('spacing.2') theme('spacing.3');
+	border-radius: 0.25rem;
+	margin: theme('spacing.2') 0;
+}
