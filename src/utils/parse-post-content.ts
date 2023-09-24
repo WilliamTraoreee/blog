@@ -2,11 +2,11 @@ import { PostContent } from '../types/post';
 import { marked } from 'marked';
 
 const spotifyRegex = new RegExp(
-	/(https?:\/\/open.spotify.com\/.*\/(track|user|artist|album)\/[a-zA-Z0-9]+(\/playlist\/[a-zA-Z0-9]+|)|spotify:(track|user|artist|album):[a-zA-Z0-9]+(:playlist:[a-zA-Z0-9]+|)).*/gm
+	/(https?:\/\/open.spotify.com\/.*\/(track|user|artist|album)\/[a-zA-Z0-9]+(\/playlist\/[a-zA-Z0-9]+|)|spotify:(track|user|artist|album):[a-zA-Z0-9]+(:playlist:[a-zA-Z0-9]+|))(?:(\?.*=[A-Za-z0-9]+))?/i
 );
 
 const youtubeRegex = new RegExp(
-	/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9_-]+)/i
+	/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed)(?:\.php)?(\?.*v=|\/))([a-zA-Z0-9_-]+)/i
 );
 
 const twitchRegex = new RegExp(
