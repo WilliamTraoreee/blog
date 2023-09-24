@@ -16,6 +16,8 @@ export function Home() {
 		}
 	}, [inView]);
 
+	console.log(window.location);
+
 	return (
 		<>
 			<a
