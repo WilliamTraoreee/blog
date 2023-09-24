@@ -23,7 +23,7 @@ export function SearchDate() {
 	};
 
 	return (
-		<div className='flex-1'>
+		<div>
 			<DateRangePicker
 				onChange={handleChange}
 				value={value}

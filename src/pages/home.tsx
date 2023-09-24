@@ -26,7 +26,7 @@ export function Home() {
 				<i className='ri-github-fill'></i>
 			</a>
 			<main className='md:w-[640px] w-full px-6 mx-auto py-20'>
-				<div className='flex justify-between gap-3 mb-5'>
+				<div className='flex justify-end gap-3 mb-5'>
 					<Search />
 					<SearchDate />
 				</div>
