@@ -123,11 +123,6 @@ body {
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-.react-calendar__tile--active {
-	background: theme('colors.white') !important;
-	color: theme('colors.black') !important;
-}
-
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
 	background: theme('colors.white') !important;
@@ -139,4 +134,12 @@ body {
 .react-calendar__tile--hover {
 	background: rgba(255, 255, 255, 0.2) !important;
 	color: theme('colors.white') !important;
+}
+
+.react-calendar__tile--active,
+.react-calendar__tile--active:hover,
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile--active.react-calendar__tile--hover {
+	background: theme('colors.white') !important;
+	color: theme('colors.black') !important;
 }
