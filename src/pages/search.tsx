@@ -40,8 +40,10 @@ export function SearchPage() {
 					>
 						<i className='ri-arrow-left-s-line'></i>
 					</Link>
-					<Search />
-					<SearchDate />
+					<div className='flex justify-end gap-3 mb-5'>
+						<Search />
+						<SearchDate />
+					</div>
 				</div>
 				{!data ||
 					(data?.pages[0].totalItems === 0 && (

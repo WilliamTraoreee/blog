@@ -17,13 +17,13 @@ export function Search(props: Props) {
 
 	return (
 		<form
-			className='flex justify-end relative flex-1'
+			className='flex justify-end relative'
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<input
 				defaultValue={value}
 				type='text'
-				className='w-full block h-10 bg-white/10 rounded border border-white/20 outline-none pl-2 pr-9'
+				className='w-64 shrink-0 block h-10 bg-white/10 rounded border border-white/20 outline-none pl-2 pr-9 focus:border-white'
 				{...register('query')}
 			/>
 			<button className='absolute right-1 top-1 h-8 w-8 text-white'>

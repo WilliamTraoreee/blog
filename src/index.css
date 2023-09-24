@@ -20,16 +20,28 @@ body {
 /* DATE RANGE PICKER */
 
 .react-daterange-picker {
-	width: 100%;
+	width: fit-content;
 }
 
 .react-daterange-picker__wrapper {
-	width: 100%;
+	width: fit-content;
 	height: theme('spacing.10');
 	border-radius: 0.25rem;
 	background: rgba(255, 255, 255, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
 	padding: 0 theme('spacing.2');
+}
+
+.react-daterange-picker--open .react-daterange-picker__wrapper {
+	border: 1px solid #fff !important;
+}
+
+.react-daterange-picker__inputGroup {
+	display: none;
+}
+
+.react-daterange-picker__clear-button {
+	display: none;
 }
 
 .react-daterange-picker__range-divider {
@@ -53,6 +65,10 @@ body {
 	background: transparent !important;
 }
 
+.react-daterange-picker__calendar-button__icon {
+	width: 14px !important;
+}
+
 .react-calendar {
 	background: rgba(255, 255, 255, 0.1) !important;
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
@@ -66,6 +82,12 @@ body {
 	background: rgba(255, 255, 255, 0.1) !important;
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
 	border-radius: 0.25rem;
+	overflow: hidden;
+}
+
+.react-calendar__navigation button:not(disabled):hover {
+	background: #fff !important;
+	color: #000 !important;
 }
 
 .react-calendar__navigation button:disabled {
@@ -93,14 +115,12 @@ body {
 .react-calendar__tile--now {
 	background: theme('colors.white') !important;
 	color: theme('colors.black') !important;
-	border-radius: 0.25rem;
 }
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
 	background: rgba(255, 255, 255, 0.2) !important;
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
-	border-radius: 0.25rem;
 }
 
 .react-calendar__tile--active {
