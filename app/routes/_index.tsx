@@ -1,4 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
+import { Modal } from '~/components/Modal';
 
 export const meta: MetaFunction = () => {
 	return [
@@ -12,5 +13,9 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-	return <p>cool</p>;
+	return (
+		<div>
+			<Modal trigger={<p>test</p>}>content</Modal>
+		</div>
+	);
 }

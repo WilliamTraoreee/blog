@@ -1,3 +1,4 @@
 import Pocketbase from 'pocketbase';
+import { getPublicEnv } from '~/root';
 
-export const pb = new Pocketbase(process.env.POCKETBASE_URL);
+export const pb = new Pocketbase(getPublicEnv('POCKETBASE_URL'));

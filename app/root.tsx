@@ -10,6 +10,7 @@ import {
 	useLoaderData,
 } from '@remix-run/react';
 import './index.css';
+import { Login } from './components/Login';
 
 declare global {
 	interface Window {
@@ -49,7 +50,10 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
-				<Outlet />
+				<main className='w-full md:w-[640px] px-6 mx-auto my-20'>
+					<Outlet />
+					<Login />
+				</main>
 				<ScrollRestoration />
 				<script
 					dangerouslySetInnerHTML={{
