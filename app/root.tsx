@@ -22,10 +22,6 @@ export default function App() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<Meta />
 				<Links />
-				<link
-					href='https://api.fontshare.com/v2/css?f[]=supreme@800,400,500,700&display=swap'
-					rel='stylesheet'
-				/>
 			</head>
 			<body>
 				<Outlet />

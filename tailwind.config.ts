@@ -7,7 +7,7 @@ export default {
 			fontFamily: {
 				sans: ['Supreme', 'sans-serif'],
 			},
-			color: {
+			colors: {
 				dark: {
 					50: '#72727D',
 					100: '#565660',

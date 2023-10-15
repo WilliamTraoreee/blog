@@ -1,3 +1,11 @@
+@import 'https://api.fontshare.com/v2/css?f[]=supreme@800,400,500,700&display=swap';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	background-color: theme('colors.dark.800');
+	color: theme('colors.white');
+	font-family: theme('fontFamily.sans');
+}
